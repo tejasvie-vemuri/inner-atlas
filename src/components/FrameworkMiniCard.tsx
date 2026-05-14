@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+
 import { Framework } from "@/lib/frameworks/types";
 import { THINKER_LABELS, THINKER_COLORS, THINKER_PHOTOS } from "@/lib/frameworks";
 
@@ -25,7 +25,7 @@ export function FrameworkMiniCard({ framework, onClick }: FrameworkMiniCardProps
   return (
     <button
       onClick={onClick}
-      className="w-full text-left flex items-center gap-3 rounded-2xl border border-[#E0D5C8] bg-white hover:bg-[#FAF6F1] transition-colors px-3.5 py-3 group"
+      className="w-full text-left flex items-center gap-3 rounded-2xl border border-[#E0D5C8] bg-white px-3.5 py-3"
     >
       {/* Thinker photo */}
       <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0 border-2 border-white shadow-sm">
@@ -62,11 +62,6 @@ export function FrameworkMiniCard({ framework, onClick }: FrameworkMiniCardProps
         </p>
       </div>
 
-      {/* Arrow */}
-      <ArrowRight
-        size={14}
-        className="text-[#C4843A] flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-      />
     </button>
   );
 }
