@@ -4,7 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Loader2 } from "lucide-react";
 import { clsx } from "clsx";
 import { ALL_FRAMEWORKS, THINKER_LABELS } from "@/lib/frameworks";
+import type { Framework } from "@/lib/frameworks";
 import ReactMarkdown from "react-markdown";
+import { FrameworkMiniCard } from "@/components/FrameworkMiniCard";
 
 interface Message {
   role: "user" | "assistant";
@@ -19,6 +21,21 @@ const STARTER_PROMPTS = [
   "I want to feel more joy in my daily life.",
   "Help me understand the difference between ego and soul.",
 ];
+
+function detectFrameworks(text: string): Framework[] {
+  const lower = text.toLowerCase();
+  const seen = new Set<string>();
+  const matched: Framework[] = [];
+  for (const f of ALL_FRAMEWORKS) {
+    if (seen.has(f.id)) continue;
+    if (lower.includes(f.title.toLowerCase())) {
+      seen.add(f.id);
+      matched.push(f);
+    }
+    if (matched.length >= 2) break;
+  }
+  return matched;
+}
 
 interface CoachClientProps {
   initialFrameworkId?: string;
@@ -36,7 +53,9 @@ export function CoachClient({ initialFrameworkId }: CoachClientProps) {
 
   useEffect(() => {
     if (initialFramework && messages.length === 0) {
-      setInput(`I want to explore the "${initialFramework.title}" framework by ${THINKER_LABELS[initialFramework.thinker]}. Can you walk me through it and help me apply it to my life?`);
+      setInput(
+        `I want to explore the "${initialFramework.title}" framework by ${THINKER_LABELS[initialFramework.thinker]}. Can you walk me through it and help me apply it to my life?`
+      );
     }
   }, [initialFramework, messages.length]);
 
@@ -83,7 +102,10 @@ export function CoachClient({ initialFrameworkId }: CoachClientProps) {
       console.error(err);
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "Something went wrong. Please check your API key and try again." },
+        {
+          role: "assistant",
+          content: "Something went wrong. Please check your API key and try again.",
+        },
       ]);
     } finally {
       setLoading(false);
@@ -100,16 +122,18 @@ export function CoachClient({ initialFrameworkId }: CoachClientProps) {
   return (
     <div className="flex flex-col h-[calc(100vh-10rem)]">
       {/* Message thread */}
-      <div className="flex-1 overflow-y-auto space-y-6 pb-4">
+      <div className="flex-1 overflow-y-auto space-y-5 pb-4">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center py-16">
             <div className="w-14 h-14 rounded-full bg-[#F0E9DF] flex items-center justify-center mb-5">
               <Bot size={26} className="text-[#C4843A]" />
             </div>
-            <h2 className="font-serif text-2xl font-bold text-[#2C1A0E] mb-2">Your Inner Atlas Coach</h2>
+            <h2 className="font-serif text-2xl font-bold text-[#2C1A0E] mb-2">
+              Your Inner Atlas Coach
+            </h2>
             <p className="text-[#7A6655] text-sm max-w-md mb-8">
-              Ask anything about life, relationships, mental health, or growth. Every response
-              draws from Brené, Oprah, Huberman, and Bartlett&apos;s frameworks.
+              Ask anything about life, relationships, mental health, or growth. Every response draws
+              from Brené, Oprah, Huberman, and Bartlett&apos;s frameworks.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-xl">
@@ -125,42 +149,70 @@ export function CoachClient({ initialFrameworkId }: CoachClientProps) {
             </div>
           </div>
         ) : (
-          messages.map((msg, i) => (
-            <div
-              key={i}
-              className={clsx("flex gap-3", msg.role === "user" ? "justify-end" : "justify-start")}
-            >
-              {msg.role === "assistant" && (
-                <div className="w-8 h-8 rounded-full bg-[#F0E9DF] flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Bot size={16} className="text-[#C4843A]" />
-                </div>
-              )}
-              <div
-                className={clsx(
-                  "max-w-[75%] rounded-2xl px-5 py-3.5 text-sm leading-7",
-                  msg.role === "user"
-                    ? "bg-[#2C1A0E] text-white rounded-br-sm"
-                    : "bg-white border border-[#E0D5C8] text-[#2C1A0E] rounded-bl-sm"
+          messages.map((msg, i) => {
+            const isAssistant = msg.role === "assistant";
+            const isStreamingThis = loading && i === messages.length - 1 && isAssistant;
+            const isDone = isAssistant && !isStreamingThis && msg.content.length > 0;
+            const relatedFrameworks = isDone ? detectFrameworks(msg.content) : [];
+
+            return (
+              <div key={i} className={clsx("flex gap-3", !isAssistant && "justify-end")}>
+                {isAssistant && (
+                  <div className="w-8 h-8 rounded-full bg-[#F0E9DF] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Bot size={16} className="text-[#C4843A]" />
+                  </div>
                 )}
-              >
-                {msg.role === "user" ? (
-                  <p>{msg.content}</p>
-                ) : (
-                  <div className="prose prose-sm max-w-none prose-p:my-1.5 prose-p:leading-7 prose-strong:text-[#2C1A0E] prose-strong:font-semibold prose-em:text-[#5C4033]">
-                    <ReactMarkdown>{msg.content}</ReactMarkdown>
-                    {loading && i === messages.length - 1 && msg.content === "" && (
-                      <Loader2 size={16} className="animate-spin text-[#7A6655]" />
+
+                <div className={clsx("flex flex-col gap-2", !isAssistant ? "items-end max-w-[75%]" : "flex-1 max-w-[75%]")}>
+                  {/* Bubble */}
+                  <div
+                    className={clsx(
+                      "rounded-2xl px-5 py-3.5 text-sm leading-relaxed w-full",
+                      !isAssistant
+                        ? "bg-[#2C1A0E] text-white rounded-br-sm"
+                        : "bg-white border border-[#E0D5C8] text-[#2C1A0E] rounded-bl-sm"
                     )}
+                  >
+                    {!isAssistant ? (
+                      <p>{msg.content}</p>
+                    ) : (
+                      <div className="[&_p]:my-1.5 [&_p]:leading-relaxed [&_strong]:font-semibold [&_strong]:text-[#2C1A0E] [&_em]:italic [&_em]:text-[#5C4033] [&_ul]:my-2 [&_ul]:pl-4 [&_li]:mb-1">
+                        {isStreamingThis && msg.content === "" ? (
+                          <Loader2 size={16} className="animate-spin text-[#7A6655]" />
+                        ) : (
+                          <ReactMarkdown>{msg.content}</ReactMarkdown>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Framework cards — shown after streaming completes */}
+                  {relatedFrameworks.length > 0 && (
+                    <div className="w-full space-y-2">
+                      <p className="text-[10px] text-[#7A6655] uppercase tracking-widest font-medium pl-1">
+                        Mentioned frameworks
+                      </p>
+                      {relatedFrameworks.map((f) => (
+                        <FrameworkMiniCard
+                          key={f.id}
+                          framework={f}
+                          onClick={() =>
+                            window.open(`/library?framework=${f.id}`, "_blank")
+                          }
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {!isAssistant && (
+                  <div className="w-8 h-8 rounded-full bg-[#2C1A0E] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <User size={16} className="text-white" />
                   </div>
                 )}
               </div>
-              {msg.role === "user" && (
-                <div className="w-8 h-8 rounded-full bg-[#2C1A0E] flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <User size={16} className="text-white" />
-                </div>
-              )}
-            </div>
-          ))
+            );
+          })
         )}
         <div ref={bottomRef} />
       </div>
