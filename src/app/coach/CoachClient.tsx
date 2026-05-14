@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Loader2 } from "lucide-react";
 import { clsx } from "clsx";
 import { ALL_FRAMEWORKS, THINKER_LABELS } from "@/lib/frameworks";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   role: "user" | "assistant";
@@ -142,13 +143,15 @@ export function CoachClient({ initialFrameworkId }: CoachClientProps) {
                     : "bg-white border border-[#E0D5C8] text-[#2C1A0E] rounded-bl-sm"
                 )}
               >
-                {msg.content.split("\n").map((line, j) => (
-                  <p key={j} className={line === "" ? "h-3" : ""}>
-                    {line}
-                  </p>
-                ))}
-                {loading && i === messages.length - 1 && msg.role === "assistant" && msg.content === "" && (
-                  <Loader2 size={16} className="animate-spin text-[#7A6655]" />
+                {msg.role === "user" ? (
+                  <p>{msg.content}</p>
+                ) : (
+                  <div className="prose prose-sm max-w-none prose-p:my-1.5 prose-p:leading-7 prose-strong:text-[#2C1A0E] prose-strong:font-semibold prose-em:text-[#5C4033]">
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                    {loading && i === messages.length - 1 && msg.content === "" && (
+                      <Loader2 size={16} className="animate-spin text-[#7A6655]" />
+                    )}
+                  </div>
                 )}
               </div>
               {msg.role === "user" && (
