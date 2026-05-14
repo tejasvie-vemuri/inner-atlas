@@ -421,4 +421,158 @@ export const breneBrownFrameworks: Framework[] = [
     prompt:
       "Think of something you feel bad about right now. Is it guilt ('I did something that violated my values') or shame ('I am defective')? How does naming the difference change how you're holding it?",
   },
+  {
+    id: "bb-vulnerability-hangover",
+    thinker: "brene_brown",
+    title: "The Vulnerability Hangover",
+    summary:
+      "After a moment of genuine courage — sharing something raw, being honest, showing up — many people are flooded with dread and regret. Brown named this the vulnerability hangover: not a sign you went too far, but confirmation you were truly seen.",
+    fullDescription:
+      "The vulnerability hangover is the emotional aftermath of daring to be seen. You gave a talk, shared something personal, had a hard conversation — and within hours you wake up flooded with 'why did I do that?' Brown normalizes this as a universal experience, not a red flag. The dread isn't evidence you overshared; it's evidence you were genuinely vulnerable. Recognizing the hangover by name helps people stay the course rather than immediately armoring back up, apologizing, or undoing the moment of courage.",
+    category: "vulnerability",
+    tags: ["vulnerability", "courage", "shame", "emotion", "self-awareness"],
+    source: "Daring Greatly (2012)",
+    prompt:
+      "Think of a time you shared something real and immediately wanted to take it back. What were you afraid people would do with what you gave them? Was the fear accurate?",
+  },
+  {
+    id: "bb-culture-of-scarcity",
+    thinker: "brene_brown",
+    title: "The Culture of Scarcity",
+    summary:
+      "We live inside a collective belief that we are never enough — not thin enough, successful enough, certain enough, safe enough. Brown argues this isn't a personal failure but a systemic one, and its antidote is sufficiency, not abundance.",
+    fullDescription:
+      "Brown identifies a pervasive cultural operating system she calls the 'culture of scarcity' — a shared, often invisible belief that there is not enough and we are not enough. This scarcity mindset drives comparison, perfectionism, shame, and disengagement. It explains why vulnerability is so threatening: in a culture that worships certainty and achievement, exposing imperfection feels like confirming you are less than. The antidote isn't to believe you have everything — it's to locate your sense of worth inside yourself rather than in cultural approval. Sufficiency, not abundance.",
+    category: "mindset",
+    tags: ["scarcity", "worthiness", "shame", "culture", "enoughness", "comparison"],
+    source: "Daring Greatly (2012)",
+    prompt:
+      "Where in your life does the voice of 'not enough' show up loudest? What would it mean to name that as a cultural lie rather than a personal truth?",
+  },
+  {
+    id: "bb-hustling-for-worthiness",
+    thinker: "brene_brown",
+    title: "Hustling for Worthiness",
+    summary:
+      "When we believe our worth must be earned through achievement, approval, or perfection, we enter a relentless cycle of performing and proving. Brown calls this hustling for worthiness — and it is the engine behind burnout, people-pleasing, and perfectionism.",
+    fullDescription:
+      "Hustling for worthiness is what happens when we treat self-worth as something conditional — something to be achieved, performed, or protected rather than inhabited. Brown contrasts it with wholehearted living, where worthiness is a starting point, not a destination. The hustle looks like overworking, people-pleasing, perfectionism, and constant comparison. It feels purposeful from the inside, even virtuous. The diagnostic question Brown offers: 'Am I doing this because it genuinely matters to me, or am I doing it to avoid feeling less than?'",
+    category: "identity",
+    tags: ["worthiness", "perfectionism", "people-pleasing", "burnout", "identity", "shame"],
+    source: "Daring Greatly (2012); The Gifts of Imperfection (2010)",
+    prompt:
+      "Where are you performing or proving instead of simply being? What are you trying to earn that you may already have?",
+  },
+  {
+    id: "bb-story-im-making-up",
+    thinker: "brene_brown",
+    title: "The Story I'm Making Up",
+    summary:
+      "Prefacing your interpretation with 'The story I'm making up is...' is one of the most disarming communication tools Brown offers. It signals you know you've filled in gaps with assumptions — and opens space for correction rather than conflict.",
+    fullDescription:
+      "When data is incomplete, the brain automatically fills the gaps with story. Brown's research shows this is neurological, not moral — but the stories we generate are heavily shaped by fear, past experience, and existing beliefs. The practice is simple: instead of stating your interpretation as fact, say 'The story I'm making up is...' This one phrase shifts the dynamic from accusation to curiosity, from defense to dialogue. It's disarming because it admits your own subjectivity before asking for the other person's truth. Teams and couples who use it regularly report dramatic reductions in escalation and blame.",
+    category: "relationships",
+    tags: ["communication", "assumptions", "curiosity", "conflict", "stories", "vulnerability"],
+    source: "Rising Strong (2015); Dare to Lead (2018)",
+    prompt:
+      "In a current conflict or confusion, what is the story you're making up about why the other person did what they did? What would you need to ask to check whether it's true?",
+  },
+  {
+    id: "bb-living-big",
+    thinker: "brene_brown",
+    title: "Living BIG (Boundaries, Integrity, Generosity)",
+    summary:
+      "BIG names the three practices that make brave relationships possible: Boundaries — knowing what's okay and not okay. Integrity — choosing courage over comfort. Generosity — extending the most charitable interpretation to others before reacting.",
+    fullDescription:
+      "Brown coins 'Living BIG' to capture the interdependence of three practices she found in the most resilient, connected people. Boundaries define what you will and won't accept — not to keep people out, but to stay in relationship without resentment. Integrity means choosing values over convenience, even when no one is watching. Generosity means assuming the most charitable interpretation of someone's behavior before responding. The key question: 'What boundaries do I need to have in place to stay in my integrity and still be generous with others?' Without all three working together, connection becomes either transactional or depleting.",
+    category: "relationships",
+    tags: ["boundaries", "integrity", "generosity", "relationships", "courage", "trust"],
+    source: "Dare to Lead (2018)",
+    prompt:
+      "Where are you compromising one of the three — boundaries, integrity, or generosity — and finding the others collapsing as a result?",
+  },
+  {
+    id: "bb-permission-slips",
+    thinker: "brene_brown",
+    title: "Permission Slips",
+    summary:
+      "Before a hard conversation or vulnerable moment, write yourself a note giving permission to show up in a specific way — not perfect, just intentional. Permission slips lower the psychological threat level without any accountability for failure.",
+    fullDescription:
+      "Brown uses permission slips as a pre-meeting and pre-challenge practice, both in teams and in her own life. You write yourself — and sometimes share with others — a brief note: 'I give myself permission to not have all the answers today,' or 'I give myself permission to feel anxious and speak anyway.' Unlike a goal or a promise, a permission slip carries no obligation to succeed. Its purpose is to lower the threat level before a vulnerable situation, create a psychological container for courage, and name what you actually need from yourself rather than what you think others expect.",
+    category: "courage",
+    tags: ["courage", "vulnerability", "self-compassion", "leadership", "intention"],
+    source: "Dare to Lead (2018)",
+    prompt:
+      "Before your next hard conversation or challenge, what one thing do you need to give yourself permission to do, feel, or not know?",
+  },
+  {
+    id: "bb-strong-back-soft-front",
+    thinker: "brene_brown",
+    title: "Strong Back, Soft Front, Wild Heart",
+    summary:
+      "True belonging requires a strong back — the courage to stand alone — a soft front — staying emotionally open rather than armoring — and a wild heart: living in the paradox of being both fierce and tender at once.",
+    fullDescription:
+      "Brown extends the Zen teacher Joan Halifax's phrase into a central belonging framework. A strong back means having values clear enough that you can stand alone if you must — you don't need approval to stay grounded. A soft front means remaining emotionally present and open rather than protecting yourself with cynicism, armoring, or emotional withdrawal. A wild heart means living in the full paradox of human experience: brave and afraid, certain and uncertain, connected and independent. Brown argues this is the mark of true belonging — not fitting in, but belonging so completely to yourself that you can be in genuine relationship with others.",
+    category: "identity",
+    tags: ["belonging", "courage", "vulnerability", "paradox", "identity", "leadership"],
+    source: "Braving the Wilderness (2017)",
+    prompt:
+      "Which of the three do you most need to cultivate right now — a stronger back, a softer front, or a wilder heart? What's getting in the way?",
+  },
+  {
+    id: "bb-near-enemies",
+    thinker: "brene_brown",
+    title: "Near Enemies",
+    summary:
+      "Near enemies are emotional states that look like the real thing but actually undermine it. Pity masquerades as compassion. Fitting in masquerades as belonging. Knowing masquerades as grounded confidence. The near enemy feels right — and quietly corrodes.",
+    fullDescription:
+      "Drawing from Buddhist psychology, Brown introduces near enemies in Atlas of the Heart to help readers recognize when they're performing an emotion or its counterfeit rather than embodying the genuine thing. The near enemy of compassion is pity — it creates distance instead of connection. The near enemy of belonging is fitting in — it requires self-erasure. The near enemy of trust is familiarity — we trust what we're used to, not what has earned it. Near enemies are seductive because they provide just enough of the feeling to satisfy the craving without requiring the full vulnerability of the real thing.",
+    category: "mindset",
+    tags: ["emotions", "compassion", "belonging", "self-awareness", "connection", "authenticity"],
+    source: "Atlas of the Heart (2021)",
+    prompt:
+      "Where in your life might you be living a near enemy — going through the motions of connection, courage, or compassion while the real thing remains out of reach?",
+  },
+  {
+    id: "bb-freudenfreude",
+    thinker: "brene_brown",
+    title: "Freudenfreude and Shoy",
+    summary:
+      "Freudenfreude is the opposite of Schadenfreude — genuine pleasure in someone else's joy or success. Brown identifies two practices that cultivate it: Shoy (enthusiastically sharing in others' good news) and Bragitude (following your own good news with gratitude for the listener).",
+    fullDescription:
+      "In Atlas of the Heart, Brown introduces Freudenfreude as an antidote to comparison culture. When someone we know succeeds at something we also want, the instinctive reaction is often a micro-sting of envy or inadequacy. Freudenfreude is the capacity to feel genuinely glad — not performed glad, but actually delighted. Shoy is the behavioral practice: intentionally showing up with interest and enthusiasm when someone shares their joy, rather than quickly turning the conversation back to yourself or responding with obligatory congratulations. Bragitude softens the social discomfort of sharing good news by immediately coupling it with appreciation.",
+    category: "relationships",
+    tags: ["empathy", "joy", "comparison", "community", "connection", "gratitude"],
+    source: "Atlas of the Heart (2021)",
+    prompt:
+      "When someone you care about succeeds at something you also want, what is your honest internal response? What would practicing Shoy look like in that moment?",
+  },
+  {
+    id: "bb-story-stewardship",
+    thinker: "brene_brown",
+    title: "Story Stewardship",
+    summary:
+      "When someone shares their story with you, you become its temporary guardian. Story stewardship means listening with curiosity, believing what you hear, and resisting the urge to fix, redirect, or make the story about yourself.",
+    fullDescription:
+      "Brown introduces story stewardship in Atlas of the Heart as one of the most radical and underrated acts of connection. She names the common ways we fail at it: being 'the knower' (jumping immediately to advice), hijacking the story (making it about our own experience), or bypassing the emotion to get to the solution. Good stewardship requires staying in the discomfort of the other person's experience without rushing to resolve it. It means listening not to respond but to understand. She argues that in a world addicted to advice and performance, the willingness to simply witness someone's story is increasingly rare and increasingly needed.",
+    category: "relationships",
+    tags: ["listening", "empathy", "connection", "communication", "compassion", "presence"],
+    source: "Atlas of the Heart (2021)",
+    prompt:
+      "In the last week, whose story did you receive — and did you steward it, fix it, or redirect it toward yourself? What would better stewardship have looked like?",
+  },
+  {
+    id: "bb-disenfranchised-grief",
+    thinker: "brene_brown",
+    title: "Disenfranchised Grief",
+    summary:
+      "Disenfranchised grief is loss that isn't publicly acknowledged or culturally supported — the grief over a miscarriage, a pet, a friendship, a dream, or an identity. Without language or witnesses, it has nowhere to go and quietly compounds.",
+    fullDescription:
+      "Brown gives extended attention in Atlas of the Heart to grief that society doesn't officially recognize as worthy of mourning: the loss of a pregnancy, the death of a pet, the end of a friendship, the grief of chronic illness, the mourning of who you thought you'd be by now. Without social permission to grieve — without rituals, language, or witnesses — these losses become invisible, internalized, and stuck. They show up later as numbness, unexplained anger, or a general heaviness. Brown argues that naming disenfranchised grief is the first act of honoring it, and that extending witnessing to others' unacknowledged losses is one of the most profound forms of human connection.",
+    category: "mental_health",
+    tags: ["grief", "loss", "emotion", "mental health", "compassion", "belonging"],
+    source: "Atlas of the Heart (2021)",
+    prompt:
+      "Is there a loss in your life that has never been given space — one you've felt you had no right to grieve openly? What would it mean to name it and let it be witnessed?",
+  },
 ];
